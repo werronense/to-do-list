@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>To-do List</title>
+  </head>
+  <body>
+    <header>
+      <h1>To-do List</h1>
+    </header>
+
+    <main>
+      <form action="index.html" method="post">
+        <label for="project">Project: </label>
+        <select name="project">
+          <option value="project">project</option>
+        </select><br>
+
+        <input type="submit" value="Choose Project">
+      </form>
+
+      <button type="button" name="button" class="project-button">
+        Add a New Project?
+      </button>
+
+      <form action="index.html" method="post" class="project-form hidden">
+        <label for="project-name">Project name: </label>
+        <input type="text" name="project-name"><br>
+
+        <input type="submit" value="Create New Project">
+      </form>
+
+      <button type="button" name="button" class="todo-button">
+        Add a New To-do?
+      </button>
+
+      <form action="index.html" method="post" class="todo-form hidden">
+        <label for="title">Title: </label>
+        <input type="text" name="title"><br>
+
+        <label for="description">Description: </label>
+        <input type="text" name="description"><br>
+
+        <label for="due-date">Due date: </label>
+        <input type="date" name="due-date"><br>
+
+        <label for="priority">Priorty: </label>
+        <select name="priority">
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select><br>
+
+        <input type="submit" value="Create New To-do">
+      </form>
+    </main>
+
+  </body>
+</html>
