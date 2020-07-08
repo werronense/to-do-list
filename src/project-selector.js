@@ -15,4 +15,4 @@ function populateProjectSelector() {
 }
 
 
-export { populateProjectSelector };
+export { createOption, populateProjectSelector };

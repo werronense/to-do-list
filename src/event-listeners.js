@@ -1,11 +1,17 @@
+import { createOption } from './project-selector.js';
+import { saveProject } from './save-data.js';
 import { toggleProjectForm, toggleTodoForm } from './toggle.js';
 
 
 function setProjectSubmitEventListener() {
   const projectForm = document.querySelector('.project-form');
+  const projectSelector = document.querySelector('.project-selector');
 
   projectForm.addEventListener('submit', e => {
     e.preventDefault();
+    saveProject(e.target['project-name'].value);
+    projectSelector.appendChild(createOption(e.target['project-name'].value));
+    e.target['project-name'].value = "";
     toggleProjectForm();
   });
 }
