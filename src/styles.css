@@ -8,6 +8,10 @@ html {
   box-sizing: inherit;
 }
 
+button {
+  display: block;
+}
+
 /* Hidden Elements */
 .hidden {
   display: none;
