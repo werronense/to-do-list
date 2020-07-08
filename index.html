@@ -14,8 +14,8 @@
     <main>
       <form action="index.html" method="post">
         <label for="project">Project: </label>
-        <select name="project">
-          <option value="project">project</option>
+        <select name="project" class="project-selector">
+          <!-- options added dynamically when page loads -->
         </select><br>
 
         <input type="submit" value="Choose Project">
@@ -58,6 +58,7 @@
     </main>
 
     <script type="text/javascript">
+      // fallback option for browsers without localStorage
       const data = {
         current: 'project',
         todos: {
