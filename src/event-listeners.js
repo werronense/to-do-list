@@ -11,7 +11,7 @@ function setProjectSubmitEventListener() {
     e.preventDefault();
     saveProject(e.target['project-name'].value);
     projectSelector.appendChild(createOption(e.target['project-name'].value));
-    e.target['project-name'].value = "";
+    projectForm.reset();
     toggleProjectForm();
   });
 }
@@ -22,6 +22,9 @@ function setTodoSubmitEventListener() {
 
   todoForm.addEventListener('click', e => {
     e.preventDefault();
+
+    // resume here
+
     toggleTodoForm();
   });
 }
