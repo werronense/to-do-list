@@ -3,6 +3,18 @@ import { saveProject } from './save-data.js';
 import { toggleProjectForm, toggleTodoForm } from './toggle.js';
 
 
+function setSelectSubmitEventListener() {
+  const projectSelectForm = document.querySelector('.select-project-form');
+
+  projectSelectForm.addEventListener('submit', e => {
+    e.preventDefault();
+
+    data.current = e.target['project'].value;
+    localStorage.setItem('current', e.target['project'].value);
+  });
+}
+
+
 function setProjectSubmitEventListener() {
   const projectForm = document.querySelector('.project-form');
   const projectSelector = document.querySelector('.project-selector');
@@ -43,6 +55,7 @@ function setEventListeners() {
   projectButton.addEventListener('click', toggleProjectForm);
   todoButton.addEventListener('click', toggleTodoForm);
 
+  setSelectSubmitEventListener();
   setProjectSubmitEventListener();
   setTodoSubmitEventListener();
 }
