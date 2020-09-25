@@ -6,11 +6,14 @@ import { toggleProjectForm, toggleTodoForm } from './toggle.js';
 function setProjectSubmitEventListener() {
   const projectForm = document.querySelector('.project-form');
   const projectSelector = document.querySelector('.project-selector');
+  projectSelector.value = localStorage.getItem('current') ||
+    data.current;
 
   projectForm.addEventListener('submit', e => {
     e.preventDefault();
     saveProject(e.target['project-name'].value);
     projectSelector.appendChild(createOption(e.target['project-name'].value));
+    projectSelector.value = e.target['project-name'].value;
     projectForm.reset();
     toggleProjectForm();
   });
@@ -23,7 +26,10 @@ function setTodoSubmitEventListener() {
   todoForm.addEventListener('click', e => {
     e.preventDefault();
 
-    // resume here
+    // TODO: create a todo object
+    // TODO: save the new todo
+    // TODO: update the list of todos displayed on page
+    // TODO: reset the form
 
     toggleTodoForm();
   });

@@ -9,7 +9,9 @@ function createOption(value) {
 function populateProjectSelector() {
   const select = document.querySelector('.project-selector');
   // get the project list from localStorage or the fallback data object
-  const projects = localStorage.getItem('projects') || Object.keys(data.todos);
+  const projects =
+    Object.keys(JSON.parse(localStorage.getItem('projects'))).sort() ||
+    Object.keys(data.todos);
 
   projects.forEach(project => select.appendChild(createOption(project)));
 }

@@ -1,6 +1,10 @@
 function saveProject(project) {
   data.todos[project] = {};
-  // TODO: enable use of local storage
+  data.current = project;
+
+  // update localStorage
+  localStorage.setItem('projects', JSON.stringify(data.todos));
+  localStorage.setItem('current', project);
 }
 
 export { saveProject };
