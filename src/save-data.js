@@ -1,5 +1,5 @@
 function saveProject(project) {
-  data.todos[project] = {};
+  data.todos[project] = [];
   data.current = project;
 
   // update localStorage
@@ -7,4 +7,11 @@ function saveProject(project) {
   localStorage.setItem('current', project);
 }
 
-export { saveProject };
+
+function saveTodo(todo) {
+  data.todos[data.current].push(todo);
+  localStorage.setItem('projects', JSON.stringify(data.todos));
+}
+
+
+export { saveProject, saveTodo };

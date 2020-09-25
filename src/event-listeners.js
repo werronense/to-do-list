@@ -1,6 +1,7 @@
 import { createOption } from './project-selector.js';
-import { saveProject } from './save-data.js';
+import { saveProject, saveTodo } from './save-data.js';
 import { toggleProjectForm, toggleTodoForm } from './toggle.js';
+import { todoFactory } from './objects.js';
 
 
 function setSelectSubmitEventListener() {
@@ -35,14 +36,16 @@ function setProjectSubmitEventListener() {
 function setTodoSubmitEventListener() {
   const todoForm = document.querySelector('.todo-form');
 
-  todoForm.addEventListener('click', e => {
+  todoForm.addEventListener('submit', e => {
     e.preventDefault();
-
-    // TODO: create a todo object
-    // TODO: save the new todo
+    saveTodo(todoFactory(
+      e.target['title'].value,
+      e.target['description'].value,
+      e.target['due-date'].value,
+      e.target['priority'].value
+    ));
     // TODO: update the list of todos displayed on page
-    // TODO: reset the form
-
+    todoForm.reset();
     toggleTodoForm();
   });
 }
