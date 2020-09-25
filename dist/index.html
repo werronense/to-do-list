@@ -58,13 +58,10 @@
     </main>
 
     <script type="text/javascript">
-      // fallback option for browsers without localStorage
       const data = {
-        current: 'project',
-        todos: {
-          project: { }
-        }
-      };
+        current: localStorage.getItem('current') || 'project',
+        todos: JSON.parse(localStorage.getItem('projects')) || { project: {} }
+      }
     </script>
   </body>
 </html>
