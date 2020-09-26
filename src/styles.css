@@ -8,6 +8,48 @@ html {
   box-sizing: inherit;
 }
 
+
+/* content container */
+.container {
+  margin: 0 auto;
+  max-width: 960px;
+  /* temporary code */
+  border: 1px red dashed;
+}
+
+
+/* menu */
+nav {
+  display: flex;
+}
+
+nav > button {
+  flex: 1 1 100px;
+}
+
+nav > form {
+  align-items: center;
+  display: flex;
+  flex: 1 1 100px;
+}
+
+nav > form label {
+  flex: 0 1 auto;
+  height: 1.5em;
+}
+
+nav > form select {
+  flex: 1 1 auto;
+  height: 1.5em;
+}
+
+nav > h1 {
+  flex: 0 1 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+
 button {
   display: block;
 }
