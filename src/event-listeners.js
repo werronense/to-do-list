@@ -4,14 +4,12 @@ import { toggleProjectForm, toggleTodoForm } from './toggle.js';
 import { todoFactory } from './objects.js';
 
 
-function setSelectSubmitEventListener() {
-  const projectSelectForm = document.querySelector('.select-project-form');
+function setSelectEventListener() {
+  const projectSelectForm = document.querySelector('.project-selector');
 
-  projectSelectForm.addEventListener('submit', e => {
-    e.preventDefault();
-
-    data.current = e.target['project'].value;
-    localStorage.setItem('current', e.target['project'].value);
+  projectSelectForm.addEventListener('change', e => {
+    data.current = e.target.value;
+    localStorage.setItem('current', e.target.value);
   });
 }
 
@@ -58,7 +56,7 @@ function setEventListeners() {
   projectButton.addEventListener('click', toggleProjectForm);
   todoButton.addEventListener('click', toggleTodoForm);
 
-  setSelectSubmitEventListener();
+  setSelectEventListener();
   setProjectSubmitEventListener();
   setTodoSubmitEventListener();
 }
