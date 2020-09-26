@@ -1,21 +1,22 @@
-function toggleHidden(elements) {
-  elements.forEach(element => element.classList.toggle('hidden'));
-}
-
-
 function toggleProjectForm() {
-  const projectButton = document.querySelector('.project-button');
   const projectForm = document.querySelector('.project-form');
+  const todoForm = document.querySelector('.todo-form');
 
-  toggleHidden([projectButton, projectForm]);
+  projectForm.classList.toggle('hidden');
+  if (!Array.from(todoForm.classList).includes('hidden')) {
+    todoForm.classList.toggle('hidden');
+  }
 }
 
 
 function toggleTodoForm() {
-  const todoButton = document.querySelector('.todo-button');
   const todoForm = document.querySelector('.todo-form');
+  const projectForm = document.querySelector('.project-form');
 
-  toggleHidden([todoButton, todoForm]);
+  todoForm.classList.toggle('hidden');
+  if (!Array.from(projectForm.classList).includes('hidden')) {
+    projectForm.classList.toggle('hidden');
+  }
 }
 
 

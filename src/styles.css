@@ -56,5 +56,6 @@ button {
 
 /* Hidden Elements */
 .hidden {
-  display: none;
+  height: 0;
+  overflow: hidden;
 }
