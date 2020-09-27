@@ -2,6 +2,7 @@ import { createOption } from './project-selector.js';
 import { saveProject, saveTodo } from './save-data.js';
 import { toggleProjectForm, toggleTodoForm } from './toggle.js';
 import { todoFactory } from './objects.js';
+import { populateList } from './populate-list.js';
 
 
 function setSelectEventListener() {
@@ -10,6 +11,7 @@ function setSelectEventListener() {
   projectSelectForm.addEventListener('change', e => {
     data.current = e.target.value;
     localStorage.setItem('current', e.target.value);
+    populateList();
   });
 }
 
@@ -42,7 +44,7 @@ function setTodoSubmitEventListener() {
       e.target['due-date'].value,
       e.target['priority'].value
     ));
-    // TODO: update the list of todos displayed on page
+    populateList();
     todoForm.reset();
     toggleTodoForm();
   });
