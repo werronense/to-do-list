@@ -56,6 +56,12 @@ section {
 }
 
 
+/* todo list */
+li p a {
+  font-variant: small-caps;
+}
+
+
 button {
   display: block;
 }

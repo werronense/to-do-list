@@ -1,3 +1,5 @@
+import { toggleDescription } from './toggle.js';
+
 function populateList() {
   const heading = document.querySelector('.list-title');
   const list = document.querySelector('.todo-list');
@@ -10,8 +12,31 @@ function populateList() {
 
   todos.forEach(todo => {
     const li = document.createElement('li');
-    li.textContent =
+    const p1 = document.createElement('p');
+    const p2 = document.createElement('p');
+    const a = document.createElement('a');
+    const span = document.createElement('span');
+
+    p1.textContent =
       `${todo.title} -- due: ${todo.dueDate} -- priorty: ${todo.priority}`;
+
+    a.setAttribute('href', '#');
+    a.textContent = "show description";
+    a.addEventListener('click', e => {
+      if (e.target.textContent.includes('show')) {
+        e.target.textContent = "hide description\t";
+        e.target.nextSibling.textContent = todo.description;
+      } else {
+        e.target.textContent = "show description";
+        e.target.nextSibling.textContent = '';
+      }
+    });
+
+    li.appendChild(p1);
+
+    p2.appendChild(a);
+    p2.appendChild(span);
+    li.appendChild(p2);
 
     list.appendChild(li);
   });

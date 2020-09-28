@@ -20,4 +20,9 @@ function toggleTodoForm() {
 }
 
 
-export { toggleProjectForm, toggleTodoForm };
+function toggleDescription() {
+
+}
+
+
+export { toggleProjectForm, toggleTodoForm, toggleDescription };
