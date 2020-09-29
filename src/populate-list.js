@@ -14,15 +14,15 @@ function populateList() {
     const li = document.createElement('li');
     const p1 = document.createElement('p');
     const p2 = document.createElement('p');
-    const a = document.createElement('a');
+    const button = document.createElement('button');
     const span = document.createElement('span');
 
     p1.textContent =
-      `${todo.title} -- due: ${todo.dueDate} -- priorty: ${todo.priority}`;
+      `${todo.title} -- due: ${todo.dueDate} -- priority: ${todo.priority}`;
 
-    a.setAttribute('href', '#');
-    a.textContent = "show description";
-    a.addEventListener('click', e => {
+    button.classList.add('description')
+    button.textContent = "show description";
+    button.addEventListener('click', e => {
       if (e.target.textContent.includes('show')) {
         e.target.textContent = "hide description\t";
         e.target.nextSibling.textContent = todo.description;
@@ -34,7 +34,7 @@ function populateList() {
 
     li.appendChild(p1);
 
-    p2.appendChild(a);
+    p2.appendChild(button);
     p2.appendChild(span);
     li.appendChild(p2);
 
