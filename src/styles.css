@@ -4,6 +4,7 @@ html {
 
 body {
   background: skyblue;
+  font-family: sans-serif;
   margin: 0;
 }
 
@@ -62,27 +63,39 @@ input[type="submit"]:active {
 
 /* menu */
 nav {
-  display: flex;
-  flex-wrap: wrap;
+  padding: 10px 10px 0 10px;
 }
 
-nav > div {
-  align-items: center;
-  display: flex;
-  flex: 1 1 auto;
-  min-width: 350px;
-  padding: 0 20px;
+nav h1 {
+  color: maroon;
+  font-size: 3em;
+  margin: 0;
 }
 
-.buttons {
+.menu-options {
   display: grid;
-  grid-column-gap: 20px;
+  grid-column-gap: 10px;
   grid-row-gap: 10px;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
 
-nav div h1 {
-  margin-right: 20px;
+nav form,
+nav button {
+  min-width: 225px;
+}
+
+nav form {
+  border: 2px maroon solid;
+  display: flex;
+  padding: 1em 2em;
+}
+
+nav form label {
+  margin-right: 5px;
+}
+
+nav form input {
+  flex: 1;
 }
 
 
@@ -108,13 +121,11 @@ input[type="submit"] {
   padding: 0.5em 1em;
 }
 
-
 .project-form p label,
 .todo-form .title label,
 .todo-form .description label {
   margin-right: 3px;
 }
-
 
 .project-form p {
   display: flex;
