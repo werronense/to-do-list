@@ -86,10 +86,18 @@ nav div h1 {
 }
 
 
+/* main */
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+}
+
+
 /* sections */
 section {
   padding: 0 20px;
 }
+
 
 /* forms */
 input[type="submit"] {
@@ -98,6 +106,60 @@ input[type="submit"] {
   font-weight: bold;
   letter-spacing: 1px;
   padding: 0.5em 1em;
+}
+
+
+.project-form p label,
+.todo-form .title label,
+.todo-form .description label {
+  margin-right: 3px;
+}
+
+
+.project-form p {
+  display: flex;
+}
+
+.project-form p input {
+  flex: 1;
+}
+
+.todo-form {
+  display: grid;
+  grid-template-areas:
+    "title title"
+    "description description"
+    "due-date priority"
+    "submit submit";
+}
+
+.todo-form .title {
+  display: flex;
+  grid-area: title;
+}
+
+.todo-form .description {
+  display: flex;
+  grid-area: description;
+}
+
+.todo-form .due-date {
+  grid-area: due-date;
+}
+
+.todo-form .priority {
+  grid-area: priority;
+}
+
+.todo-form .submit {
+  display: flex;
+  grid-area: submit;
+}
+
+.todo-form .description input,
+.todo-form .title input,
+.todo-form .submit input {
+  flex: 1;
 }
 
 
