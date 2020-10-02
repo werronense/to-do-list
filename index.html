@@ -9,29 +9,20 @@
 
   <body>
     <div class="container">
-      <nav>
-        <h1>MENU</h1>
-
-        <div class="menu-options">
-          <button type="button" name="button" class="project-button">
-            Add a New Project?
-          </button>
-
-          <button type="button" name="button" class="todo-button">
-            Add a New To-do?
-          </button>
-
-          <form action="index.html" method="post" class="select-project-form">
-            <label for="project">Project: </label>
-            <select name="project" class="project-selector">
-              <!-- options added dynamically when page loads -->
-            </select>
-          </form>
-        </div>
-      </nav>
+      <h1>To-do List</h1>
 
       <main>
         <section>
+          <div class="options">
+            <button type="button" name="button" class="project-button">
+              Add a New Project?
+            </button>
+
+            <button type="button" name="button" class="todo-button">
+              Add a New To-do?
+            </button>
+          </div>
+
           <form action="index.html" method="post" class="project-form hidden">
             <p>
               <label for="project-name">Project name: </label>
@@ -74,6 +65,15 @@
         </section>
 
         <section>
+          <div class="projects">
+            <form action="index.html" method="post" class="select-project-form">
+              <label for="project">Project: </label>
+              <select name="project" class="project-selector">
+                <!-- options added dynamically when page loads -->
+              </select>
+            </form>
+          </div>
+
           <h2 class="list-title"></h2>
           <ul class="todo-list">
 
