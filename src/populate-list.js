@@ -1,14 +1,22 @@
 import { toggleDescription } from './toggle.js';
 
+
+function capitalizeFirstWord(string) {
+  return string.slice(0, 1).toUpperCase() + string.slice(1);
+}
+
+
 function populateList() {
   const heading = document.querySelector('.list-title');
   const list = document.querySelector('.todo-list');
   const todos = data.todos[data.current];
+  const b = document.createElement('b');
 
   list.innerHTML = '';
 
-  heading.innerHTML = `Current List: <b>
-    ${data.current.slice(0,1).toUpperCase() + data.current.slice(1)}</b>`;
+  heading.textContent = "Current List: ";
+  b.textContent = capitalizeFirstWord(data.current);
+  heading.appendChild(b);
 
   todos.forEach((todo, i) => {
     const li = document.createElement('li');
