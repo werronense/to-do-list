@@ -168,7 +168,11 @@ input[type="submit"] {
 
 
 /* todo list */
-button.description {
+.todo-list li {
+  padding-right: 20px;
+}
+
+button.details {
   font-size: 0.8em;
   font-variant: small-caps;
   font-weight: bold;

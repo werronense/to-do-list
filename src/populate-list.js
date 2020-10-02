@@ -18,33 +18,43 @@ function populateList() {
   b.textContent = capitalizeFirstWord(data.current);
   heading.appendChild(b);
 
-  todos.forEach((todo, i) => {
+  todos.forEach(todo => {
     const li = document.createElement('li');
+    const h3 = document.createElement('h3');
+    const div = document.createElement('div');
     const p1 = document.createElement('p');
     const p2 = document.createElement('p');
+    const p3 = document.createElement('p');
     const button = document.createElement('button');
 
-    p1.textContent =
-      `${todo.title} -- due: ${todo.dueDate} -- priority: ${todo.priority}`;
+    h3.textContent = capitalizeFirstWord(todo.title);
 
-    button.classList.add('description')
-    button.textContent = "show description";
+    button.classList.add('details')
+    button.textContent = "show details";
 
-    p2.classList.add(`item-${i}-details`, 'hidden');
-    p2.textContent = todo.description;
+    div.classList.add('hidden');
+
+    p1.textContent = `Due: ${todo.dueDate}`;
+    p2.textContent = `Priority: ${todo.priority}`;
+    p3.textContent = `Description: ${todo.description}`;
 
     button.addEventListener('click', e => {
       if (e.target.textContent.includes('show')) {
-        e.target.textContent = "hide description";
-        p2.classList.toggle('hidden');
+        e.target.textContent = "hide details";
+        div.classList.toggle('hidden');
       } else {
-        e.target.textContent = "show description";
-        p2.classList.toggle('hidden');
+        e.target.textContent = "show details";
+        div.classList.toggle('hidden');
       }
     });
 
-    li.appendChild(p1);
-    li.appendChild(p2);
+    li.appendChild(h3);
+
+    div.appendChild(p1);
+    div.appendChild(p2);
+    div.appendChild(p3);
+    li.appendChild(div);
+
     li.appendChild(button);
 
     list.appendChild(li);
