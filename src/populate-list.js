@@ -6,58 +6,89 @@ function capitalizeFirstWord(string) {
 }
 
 
-function populateList() {
-  const heading = document.querySelector('.list-title');
-  const list = document.querySelector('.todo-list');
-  const todos = data.todos[data.current];
-  const b = document.createElement('b');
+function createHeader(text) {
+  const header = document.createElement('h3');
+  header.textContent = capitalizeFirstWord(text);
 
-  list.innerHTML = '';
+  return header;
+}
+
+
+function createParagraph(text) {
+  const p = document.createElement('p');
+  p.textContent = text;
+
+  return p;
+}
+
+
+function createDetailsDiv(obj) {
+  const div = document.createElement('div');
+  div.classList.add('hidden');
+
+  const p1 = createParagraph(`Due: ${obj.dueDate}`);
+  const p2 = createParagraph(`Priority: ${obj.priority}`);
+  const p3 = createParagraph(`Description: ${obj.description}`);
+
+  div.appendChild(p1);
+  div.appendChild(p2);
+  div.appendChild(p3);
+
+  return div;
+}
+
+
+function createButton(detailsDiv) {
+  const button = document.createElement('button');
+  button.classList.add('button', 'small-button', 'details');
+  button.textContent = "show details";
+
+  button.addEventListener('click', e => {
+    if (e.target.textContent.includes('show')) {
+      e.target.textContent = "hide details";
+      detailsDiv.classList.toggle('hidden');
+    } else {
+      e.target.textContent = "show details";
+      detailsDiv.classList.toggle('hidden');
+    }
+  });
+
+  return button;
+}
+
+
+function createTodoItem(todo) {
+  const li = document.createElement('li');
+  const div = createDetailsDiv(todo);
+  const button = createButton(div);
+
+  li.appendChild(createHeader(todo.title));
+  li.appendChild(div);
+  li.appendChild(button);
+
+  return li;
+}
+
+
+function updateHeading(project) {
+  const heading = document.querySelector('.list-title');
+  const b = document.createElement('b');
 
   heading.textContent = "Current List: ";
   b.textContent = capitalizeFirstWord(data.current);
   heading.appendChild(b);
+}
+
+
+function populateList() {
+  const list = document.querySelector('.todo-list');
+  const todos = data.todos[data.current];
+
+  updateHeading(data.current);
+  list.innerHTML = '';
 
   todos.forEach(todo => {
-    const li = document.createElement('li');
-    const h3 = document.createElement('h3');
-    const div = document.createElement('div');
-    const p1 = document.createElement('p');
-    const p2 = document.createElement('p');
-    const p3 = document.createElement('p');
-    const button = document.createElement('button');
-
-    h3.textContent = capitalizeFirstWord(todo.title);
-
-    button.classList.add('button', 'small-button', 'details');
-    button.textContent = "show details";
-
-    div.classList.add('hidden');
-
-    p1.textContent = `Due: ${todo.dueDate}`;
-    p2.textContent = `Priority: ${todo.priority}`;
-    p3.textContent = `Description: ${todo.description}`;
-
-    button.addEventListener('click', e => {
-      if (e.target.textContent.includes('show')) {
-        e.target.textContent = "hide details";
-        div.classList.toggle('hidden');
-      } else {
-        e.target.textContent = "show details";
-        div.classList.toggle('hidden');
-      }
-    });
-
-    li.appendChild(h3);
-
-    div.appendChild(p1);
-    div.appendChild(p2);
-    div.appendChild(p3);
-    li.appendChild(div);
-
-    li.appendChild(button);
-
-    list.appendChild(li);
+    list.appendChild(createTodoItem(todo));
   });
 }
 
