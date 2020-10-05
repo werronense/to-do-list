@@ -29,7 +29,7 @@ function populateList() {
 
     h3.textContent = capitalizeFirstWord(todo.title);
 
-    button.classList.add('details')
+    button.classList.add('button', 'small-button', 'details');
     button.textContent = "show details";
 
     div.classList.add('hidden');
