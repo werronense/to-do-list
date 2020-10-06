@@ -26,7 +26,7 @@ function createDetailsDiv(obj) {
   const div = document.createElement('div');
   div.classList.add('hidden');
 
-  const p1 = createParagraph(`Due: ${obj.dueDate}`);
+  const p1 = createParagraph(`Due: ${obj.date}`);
   const p2 = createParagraph(`Priority: ${obj.priority}`);
   const p3 = createParagraph(`Description: ${obj.description}`);
 
