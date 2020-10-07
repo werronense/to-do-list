@@ -22,11 +22,25 @@ function createParagraph(text) {
 }
 
 
+function formatDate(string) {
+  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday',
+    'Friday', 'Saturday'];
+  const months = ['January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'];
+
+  const date = new Date(string);
+  const dateString = `${days[date.getDay()]}, ${months[date.getMonth()]}
+  ${date.getDate()}, ${date.getFullYear()}`;
+
+  return dateString;
+}
+
+
 function createDetailsDiv(obj) {
   const div = document.createElement('div');
   div.classList.add('hidden');
 
-  const p1 = createParagraph(`Due: ${obj.date}`);
+  const p1 = createParagraph(`Due: ${formatDate(obj.date)}`);
   const p2 = createParagraph(`Priority: ${obj.priority}`);
   const p3 = createParagraph(`Description: ${obj.description}`);
 
