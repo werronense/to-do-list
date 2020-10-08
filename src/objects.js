@@ -6,10 +6,10 @@ function convertDate(input) {
 }
 
 
-function todoFactory(title, description, dueDate, priority) {
+function todoFactory(title, description, dueDate, priority, completed=false) {
   const date = convertDate(dueDate);
 
-  return { title, description, date, priority };
+  return { title, description, date, priority, completed };
 }
 
 export { todoFactory };
