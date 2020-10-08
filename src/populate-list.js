@@ -10,7 +10,11 @@ function createCheckbox() {
   const checkbox = document.createElement('input');
   checkbox.setAttribute('type', 'checkbox');
 
-  // add event listener here
+  // complete the event listener
+  checkbox.addEventListener('change', e => {
+    // targets the title, which is the next sibling of the checkbox
+    e.target.nextSibling.classList.toggle('completed');
+  });
 
   return checkbox;
 }

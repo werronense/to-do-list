@@ -181,6 +181,10 @@ section {
   margin-left: 10px;
 }
 
+.completed {
+  text-decoration: line-through;
+}
+
 .todo-description p {
   margin-top: 0;
 }
