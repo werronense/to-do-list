@@ -6,8 +6,20 @@ function capitalizeFirstWord(string) {
 }
 
 
+function createCheckbox() {
+  const checkbox = document.createElement('input');
+  checkbox.setAttribute('type', 'checkbox');
+
+  // add event listener here
+
+  return checkbox;
+}
+
+
 function createHeader(text) {
   const header = document.createElement('h3');
+
+  header.classList.add('todo-title');
   header.textContent = capitalizeFirstWord(text);
 
   return header;
@@ -38,7 +50,7 @@ function formatDate(string) {
 
 function createDetailsDiv(obj) {
   const div = document.createElement('div');
-  div.classList.add('hidden');
+  div.classList.add('todo-description', 'hidden');
 
   const p1 = createParagraph(`Due: ${formatDate(obj.date)}`);
   const p2 = createParagraph(`Priority: ${obj.priority}`);
@@ -76,6 +88,7 @@ function createTodoItem(todo) {
   const div = createDetailsDiv(todo);
   const button = createButton(div);
 
+  li.appendChild(createCheckbox());
   li.appendChild(createHeader(todo.title));
   li.appendChild(div);
   li.appendChild(button);
