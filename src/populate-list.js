@@ -1,4 +1,5 @@
 import { toggleDescription } from './toggle.js';
+import { saveTodoList } from './save-data.js';
 
 
 function capitalizeFirstWord(string) {
@@ -18,6 +19,8 @@ function createCheckbox() {
 
     data.todos[data.current][index].completed =
       !data.todos[data.current][index].completed;
+
+    saveTodoList();
   });
 
   return checkbox;
