@@ -12,8 +12,12 @@ function createCheckbox() {
 
   // complete the event listener
   checkbox.addEventListener('change', e => {
+    const index = e.target.parentNode.dataset.index;
     // targets the title, which is the next sibling of the checkbox
     e.target.nextSibling.classList.toggle('completed');
+
+    data.todos[data.current][index].completed =
+      !data.todos[data.current][index].completed;
   });
 
   return checkbox;
@@ -87,10 +91,12 @@ function createButton(detailsDiv) {
 }
 
 
-function createTodoItem(todo) {
+function createTodoItem(todo, index) {
   const li = document.createElement('li');
   const div = createDetailsDiv(todo);
   const button = createButton(div);
+
+  li.setAttribute('data-index', index);
 
   li.appendChild(createCheckbox());
   li.appendChild(createHeader(todo.title));
@@ -118,8 +124,8 @@ function populateList() {
   updateHeading(data.current);
   list.innerHTML = '';
 
-  todos.forEach(todo => {
-    list.appendChild(createTodoItem(todo));
+  todos.forEach((todo, i) => {
+    list.appendChild(createTodoItem(todo, i));
   });
 }
 
