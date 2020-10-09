@@ -155,12 +155,16 @@ section {
 
 .todo-form .submit {
   display: flex;
+  flex-direction: column;
   grid-area: submit;
 }
 
-.todo-form .description input,
-.todo-form .title input,
 .todo-form .submit input {
+  width: 100%;
+}
+
+.todo-form .description input,
+.todo-form .title input {
   flex: 1;
 }
 
@@ -210,4 +214,8 @@ section {
   height: 0;
   margin: 0;
   overflow: hidden;
+}
+
+input.hidden {
+  display: none;
 }
