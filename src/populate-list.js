@@ -7,13 +7,14 @@ function capitalizeFirstWord(string) {
 }
 
 
-function createCheckbox() {
+function createCheckbox(index) {
   const checkbox = document.createElement('input');
   checkbox.setAttribute('type', 'checkbox');
+  checkbox.setAttribute('data-index', index);
 
   // complete the event listener
   checkbox.addEventListener('change', e => {
-    const index = e.target.parentNode.dataset.index;
+    const index = e.target.dataset.index;
     // targets the title, which is the next sibling of the checkbox
     e.target.nextSibling.classList.toggle('completed');
 
@@ -34,6 +35,20 @@ function createHeader(text) {
   header.textContent = capitalizeFirstWord(text);
 
   return header;
+}
+
+
+function createHeaderDiv(text, index) {
+  const div = document.createElement('div');
+  const subDiv = document.createElement('div');
+  const header = createHeader(text);
+
+  subDiv.appendChild(createCheckbox(index));
+  subDiv.appendChild(header);
+
+  div.appendChild(subDiv);
+
+  return div;
 }
 
 
@@ -99,10 +114,7 @@ function createTodoItem(todo, index) {
   const div = createDetailsDiv(todo);
   const button = createButton(div);
 
-  li.setAttribute('data-index', index);
-
-  li.appendChild(createCheckbox());
-  li.appendChild(createHeader(todo.title));
+  li.appendChild(createHeaderDiv(todo.title, index));
   li.appendChild(div);
   li.appendChild(button);
 
