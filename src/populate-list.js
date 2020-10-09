@@ -1,5 +1,6 @@
 import { toggleDescription } from './toggle.js';
 import { saveTodoList } from './save-data.js';
+import { createEditButton } from './buttons.js';
 
 
 function capitalizeFirstWord(string) {
@@ -43,10 +44,13 @@ function createHeaderDiv(text, index) {
   const subDiv = document.createElement('div');
   const header = createHeader(text);
 
+  div.classList.add('todo-item-main');
+
   subDiv.appendChild(createCheckbox(index));
   subDiv.appendChild(header);
 
   div.appendChild(subDiv);
+  div.appendChild(createEditButton());
 
   return div;
 }

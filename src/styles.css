@@ -181,8 +181,19 @@ section {
   margin-left: 10px;
 }
 
+.todo-item-main {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
 .completed {
   text-decoration: line-through;
+}
+
+.todo-edit-button {
+  flex: 0 0 auto;
+  height: 2.25em;
 }
 
 .todo-description p {
