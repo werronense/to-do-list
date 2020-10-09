@@ -121,6 +121,11 @@ function createTodoItem(todo, index) {
   const div = createDetailsDiv(todo);
   const button = createButton(div);
 
+  li.setAttribute('data-index', index);
+  li.addEventListener('click', e => {
+    data.todoIndex = +li.dataset.index;
+  })
+
   li.appendChild(createHeaderDiv(todo.title, index));
   li.appendChild(div);
   li.appendChild(button);
