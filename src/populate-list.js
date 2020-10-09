@@ -1,5 +1,6 @@
 import { toggleDescription } from './toggle.js';
 import { saveTodoList } from './save-data.js';
+import { createAnchor } from './elements.js';
 import { createEditButton } from './buttons.js';
 
 
@@ -43,6 +44,7 @@ function createHeaderDiv(text, index) {
   const div = document.createElement('div');
   const subDiv = document.createElement('div');
   const header = createHeader(text);
+  const a = createAnchor();
 
   div.classList.add('todo-item-main');
 
@@ -50,7 +52,8 @@ function createHeaderDiv(text, index) {
   subDiv.appendChild(header);
 
   div.appendChild(subDiv);
-  div.appendChild(createEditButton());
+  a.appendChild(createEditButton());
+  div.appendChild(a);
 
   return div;
 }
