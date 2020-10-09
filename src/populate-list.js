@@ -52,7 +52,7 @@ function createHeaderDiv(text, index) {
   subDiv.appendChild(header);
 
   div.appendChild(subDiv);
-  a.appendChild(createEditButton());
+  a.appendChild(createEditButton(index));
   div.appendChild(a);
 
   return div;
