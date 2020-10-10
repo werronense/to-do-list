@@ -16,7 +16,7 @@ function prefillTodoForm(details) {
 
   formTitle.value = details.title;
   formDescription.value = details.description;
-  formDueDate.value = details.date.substring(0, 10);
+  formDueDate.value = details.date.toISOString().substring(0, 10);
   formPriority.value = details.priority;
 
   formTitle.focus();

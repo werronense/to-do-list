@@ -152,6 +152,8 @@ function populateList() {
   list.innerHTML = '';
 
   todos.forEach((todo, i) => {
+    // convert date strings to objects
+    todo.date = new Date(todo.date);
     list.appendChild(createTodoItem(todo, i));
   });
 }
