@@ -36,18 +36,20 @@ function setProjectSubmitEventListener() {
   });
 }
 
-
-function setTodoSubmitEventListener() {
+function setTodoSaveEventListener() {
+  const createTodoButton =
+    document.querySelector(".todo-form .create-todo-button");
   const todoForm = document.querySelector('.todo-form');
   const projectForm = document.querySelector('.project-form');
 
-  todoForm.addEventListener('submit', e => {
+  createTodoButton.addEventListener('click', e => {
     e.preventDefault();
+
     saveTodo(todoFactory(
-      e.target['title'].value,
-      e.target['description'].value,
-      e.target['due-date'].value,
-      e.target['priority'].value
+      todoForm['title'].value,
+      todoForm['description'].value,
+      todoForm['due-date'].value,
+      todoForm['priority'].value
     ));
     populateList();
 
@@ -68,7 +70,7 @@ function setEventListeners() {
 
   setSelectEventListener();
   setProjectSubmitEventListener();
-  setTodoSubmitEventListener();
+  setTodoSaveEventListener();
 }
 
 
