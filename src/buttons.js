@@ -1,3 +1,6 @@
+import { prefillTodoForm } from './forms.js';
+
+
 function createEditButton(index) {
   const button = document.createElement('button');
   const i = index;
@@ -15,21 +18,7 @@ function createEditButton(index) {
     createButton.classList.add('hidden');
     changeButton.classList.remove('hidden');
 
-    // prefill the todo form with the existing information
-    // TODO: refactor into a separate function -- prefillTodoForm() in forms.js
-    const todoDetails = data.todos[data.current][i];
-    const formTitle = document.querySelector(".title input");
-    const formDescription = document.querySelector(".description input");
-    const formDueDate = document.querySelector(".due-date input");
-    const formPriority = document.querySelector(".priority select");
-
-    formTitle.value = todoDetails.title;
-    formDescription.value = todoDetails.description;
-    formDueDate.value = todoDetails.date.substring(0, 10);
-    formPriority.value = todoDetails.priority;
-
-    formTitle.focus();
-    // end of form prefill code
+    prefillTodoForm(data.todos[data.current][i]);
     todoForm.classList.remove('hidden');
   });
 
