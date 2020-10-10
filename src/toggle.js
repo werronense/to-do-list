@@ -6,6 +6,9 @@ function toggleProjectForm() {
   if (!Array.from(todoForm.classList).includes('hidden')) {
     todoForm.classList.toggle('hidden');
   }
+
+  projectForm.reset();
+  todoForm.reset();
 }
 
 
@@ -17,11 +20,14 @@ function toggleTodoForm() {
   if (!Array.from(projectForm.classList).includes('hidden')) {
     projectForm.classList.toggle('hidden');
   }
+
+  projectForm.reset();
+  todoForm.reset();
 }
 
 
 function toggleDescription() {
-
+  // delete if not in use
 }
 
 

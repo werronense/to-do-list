@@ -18,6 +18,7 @@ function setSelectEventListener() {
 
 function setProjectSubmitEventListener() {
   const projectForm = document.querySelector('.project-form');
+  const todoForm = document.querySelector('.todo-form');
   const projectSelector = document.querySelector('.project-selector');
   projectSelector.value = localStorage.getItem('current') ||
     data.current;
@@ -27,7 +28,10 @@ function setProjectSubmitEventListener() {
     saveProject(e.target['project-name'].value);
     projectSelector.appendChild(createOption(e.target['project-name'].value));
     projectSelector.value = e.target['project-name'].value;
+
     projectForm.reset();
+    todoForm.reset();
+
     toggleProjectForm();
   });
 }
@@ -35,6 +39,7 @@ function setProjectSubmitEventListener() {
 
 function setTodoSubmitEventListener() {
   const todoForm = document.querySelector('.todo-form');
+  const projectForm = document.querySelector('.project-form');
 
   todoForm.addEventListener('submit', e => {
     e.preventDefault();
@@ -45,7 +50,10 @@ function setTodoSubmitEventListener() {
       e.target['priority'].value
     ));
     populateList();
+
     todoForm.reset();
+    projectForm.reset();
+
     toggleTodoForm();
   });
 }
