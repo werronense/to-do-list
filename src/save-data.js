@@ -23,4 +23,11 @@ function saveTodo(todo) {
 }
 
 
-export { saveProject, saveTodo, saveTodoList };
+function updateTodo(todo) {
+  data.todos[data.current][data.todoIndex] = todo;
+  data.todos[data.current] = sortByDate(data.todos[data.current]);
+  saveTodoList();
+}
+
+
+export { saveProject, saveTodo, saveTodoList, updateTodo };
