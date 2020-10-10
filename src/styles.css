@@ -196,8 +196,7 @@ section {
 }
 
 .todo-edit-button {
-  flex: 0 0 auto;
-  height: 2.25em;
+  margin-left: 10px;
 }
 
 .todo-description p {

@@ -1,7 +1,7 @@
 import { toggleDescription } from './toggle.js';
 import { saveTodoList } from './save-data.js';
 import { createAnchor } from './elements.js';
-import { createEditButton } from './buttons.js';
+import { createEditButton, createDeleteButton } from './buttons.js';
 
 
 function capitalizeFirstWord(string) {
@@ -42,18 +42,22 @@ function createHeader(text) {
 
 function createHeaderDiv(text, index) {
   const div = document.createElement('div');
-  const subDiv = document.createElement('div');
+  const subDiv1 = document.createElement('div');
+  const subDiv2 = document.createElement('div');
   const header = createHeader(text);
   const a = createAnchor();
 
   div.classList.add('todo-item-main');
 
-  subDiv.appendChild(createCheckbox(index));
-  subDiv.appendChild(header);
+  subDiv1.appendChild(createCheckbox(index));
+  subDiv1.appendChild(header);
 
-  div.appendChild(subDiv);
+  subDiv2.appendChild(createDeleteButton(index));
   a.appendChild(createEditButton(index));
-  div.appendChild(a);
+  subDiv2.appendChild(a);
+
+  div.appendChild(subDiv1);
+  div.appendChild(subDiv2);
 
   return div;
 }

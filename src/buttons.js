@@ -26,4 +26,20 @@ function createEditButton(index) {
 }
 
 
-export { createEditButton };
+function createDeleteButton(index) {
+  const button = document.createElement('button');
+  const i = index;
+
+  button.classList.add('button', 'small-button', 'todo-delete-button');
+  button.textContent = 'delete';
+
+  // TODO: add event listener
+  button.addEventListener('click', () => {
+    console.log('delete!');
+  });
+
+  return button;
+}
+
+
+export { createEditButton, createDeleteButton };
