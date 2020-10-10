@@ -1,4 +1,6 @@
 import { prefillTodoForm } from './forms.js';
+import { saveTodoList } from './save-data.js';
+import { populateList } from './populate-list.js';
 
 
 function createEditButton(index) {
@@ -33,9 +35,10 @@ function createDeleteButton(index) {
   button.classList.add('button', 'small-button', 'todo-delete-button');
   button.textContent = 'delete';
 
-  // TODO: add event listener
   button.addEventListener('click', () => {
-    console.log('delete!');
+    data.todos[data.current].splice(i, 1);
+    saveTodoList();
+    populateList();
   });
 
   return button;
