@@ -26,9 +26,4 @@ function toggleTodoForm() {
 }
 
 
-function toggleDescription() {
-  // delete if not in use
-}
-
-
-export { toggleProjectForm, toggleTodoForm, toggleDescription };
+export { toggleProjectForm, toggleTodoForm };
