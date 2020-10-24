@@ -42,22 +42,17 @@ function createHeader(text) {
 
 function createHeaderDiv(text, index) {
   const div = document.createElement('div');
-  const subDiv1 = document.createElement('div');
-  const subDiv2 = document.createElement('div');
   const header = createHeader(text);
   const a = createAnchor();
 
   div.classList.add('todo-item-main');
 
-  subDiv1.appendChild(createCheckbox(index));
-  subDiv1.appendChild(header);
+  div.appendChild(createCheckbox(index));
+  div.appendChild(header);
 
-  subDiv2.appendChild(createDeleteButton(index));
+  div.appendChild(createDeleteButton(index));
   a.appendChild(createEditButton(index));
-  subDiv2.appendChild(a);
-
-  div.appendChild(subDiv1);
-  div.appendChild(subDiv2);
+  div.appendChild(a);
 
   return div;
 }
