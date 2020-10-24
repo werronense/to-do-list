@@ -10,4 +10,5 @@ function initialize() {
   displayForms();
   populateProjectSelector();
   setEventListeners();
+  populateList();
 }
