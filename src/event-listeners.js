@@ -33,6 +33,7 @@ function setProjectSubmitEventListener() {
     todoForm.reset();
 
     toggleProjectForm();
+    populateList();
   });
 }
 
