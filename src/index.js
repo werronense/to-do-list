@@ -10,5 +10,5 @@ function initialize() {
   displayForms();
   populateProjectSelector();
   setEventListeners();
-  populateList();
+  // populateList();
 }
