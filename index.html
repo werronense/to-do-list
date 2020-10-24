@@ -83,16 +83,17 @@
 
           <h2 class="list-title"></h2>
           <ul class="todo-list">
-
+            <!-- list dynamically populated when project selected -->
           </ul>
         </section>
       </div>
     </main>
 
     <script type="text/javascript">
+      let projects = JSON.parse(localStorage.getItem('projects'));
       const data = {
-        current: localStorage.getItem('current') || 'project',
-        todos: JSON.parse(localStorage.getItem('projects')) || { project: [] },
+        current: localStorage.getItem('current') || 'default',
+        todos: projects ? projects : { default: [] },
         todoIndex: null
       }
     </script>
