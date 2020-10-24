@@ -27,7 +27,7 @@ body {
   margin: 0;
   text-align: center;
   text-decoration: none;
-  transition: background 250ms ease-in-ease-out,
+  transition: background 250ms ease-in-out,
     transform 150ms ease;
 }
 
